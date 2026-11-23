@@ -1,0 +1,51 @@
+:root {
+  --ink: #17211e;
+  --muted: #65706c;
+  --pine: #173a34;
+  --cream: #f8f5ed;
+  --sand: #e6dfcd;
+  --line: #d8d3c6;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--ink); background: var(--cream); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+button { font: inherit; }
+.product-page { min-height: 100svh; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr); }
+.viewer-panel { min-height: 620px; position: relative; padding: 28px; background: #ded9cb; overflow: hidden; }
+.brand { position: absolute; z-index: 2; letter-spacing: .14em; font-size: 11px; font-weight: 700; color: var(--pine); }
+model-viewer { display: block; width: 100%; height: calc(100% - 22px); min-height: 560px; --poster-color: transparent; background: radial-gradient(circle at 50% 50%, #f4efe2, #cec6b5); }
+.ar-button, .launch-ar { border: 0; cursor: pointer; background: var(--pine); color: white; font-weight: 700; transition: transform .15s ease, background .15s ease; }
+.ar-button { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); padding: 14px 20px; border-radius: 999px; }
+.ar-button:hover, .launch-ar:hover { background: #0c2823; }
+.ar-button:focus-visible, .launch-ar:focus-visible, .texture-option:focus-within { outline: 3px solid #b67b3e; outline-offset: 3px; }
+.model-fallback { display: grid; place-items: center; height: 100%; color: var(--muted); }
+.viewer-note { position: absolute; z-index: 2; bottom: 9px; left: 28px; margin: 0; color: #53605b; font-size: 12px; }
+.details-panel { max-width: 540px; align-self: center; padding: clamp(40px, 8vw, 110px) clamp(28px, 6vw, 88px); }
+.eyebrow { margin: 0 0 14px; color: var(--pine); text-transform: uppercase; letter-spacing: .12em; font-size: 11px; font-weight: 700; }
+h1 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(40px, 5vw, 64px); font-weight: 400; line-height: .97; }
+.description { max-width: 38ch; margin: 24px 0 36px; color: var(--muted); line-height: 1.6; }
+.selected-texture { display: grid; gap: 3px; margin-bottom: 28px; }
+.selected-texture span { color: var(--muted); font-size: 13px; }
+.selected-texture strong { font-size: 23px; }
+fieldset { min-width: 0; padding: 0; border: 0; margin: 0; }
+legend { margin-bottom: 12px; font-weight: 700; }
+.texture-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.texture-option { display: grid; grid-template-columns: 68px 1fr; align-items: center; gap: 10px; min-height: 78px; border: 1px solid var(--line); background: white; padding: 6px; cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+.texture-option:has(input:checked) { border-color: var(--pine); background: #edf1eb; }
+.texture-option input { position: absolute; opacity: 0; }
+.texture-option img { width: 68px; height: 64px; object-fit: cover; }
+.texture-option span { display: block; padding-right: 4px; font-size: 13px; font-weight: 700; line-height: 1.25; }
+.launch-ar { width: 100%; margin-top: 30px; padding: 16px; }
+.compatibility { margin: 13px 0 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.qr-dialog { width: min(420px, calc(100% - 32px)); border: 0; padding: 38px; color: var(--ink); background: var(--cream); box-shadow: 0 20px 60px rgba(23, 33, 30, .25); text-align: center; }
+.qr-dialog::backdrop { background: rgba(23, 33, 30, .58); }
+.qr-dialog h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 31px; font-weight: 400; line-height: 1.08; }
+.qr-dialog .eyebrow { margin-bottom: 12px; }
+.dialog-close { position: absolute; top: 12px; right: 15px; border: 0; background: transparent; color: var(--ink); cursor: pointer; font-size: 28px; line-height: 1; }
+.qr-image { display: block; width: min(235px, 100%); margin: 25px auto 14px; background: white; }
+.qr-size { margin: 0; font-weight: 700; }
+.ar-launch-page { display: grid; min-height: 100svh; place-items: center; padding: 24px; }
+.ar-launch { width: min(460px, 100%); text-align: center; }
+.ar-launch .launch-ar { display: block; margin-top: 30px; text-decoration: none; }
+@media (max-width: 800px) { .product-page { grid-template-columns: 1fr; } .viewer-panel { min-height: 510px; padding: 20px; } model-viewer { min-height: 450px; } .viewer-note { left: 20px; } .details-panel { max-width: none; padding: 42px 24px 54px; } }
+@media (max-width: 420px) { .texture-options { grid-template-columns: 1fr; } }
