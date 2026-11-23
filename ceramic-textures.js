@@ -1,20 +1,27 @@
-// Ceramic collection registry. Add one entry per texture and point `thumbnail`
+// Set AR placement once per ceramic product collection.
+// Use 'floor' for horizontal surfaces and 'wall' for vertical surfaces.
+export const CERAMIC_COLLECTION_SETTINGS = {
+  'ecostone-cross-cut': {
+    name: 'Ecostone Cross Cut',
+    arPlacement: 'wall',
+  },
+};
+
+// Ceramic texture registry. Add one entry per texture and point `thumbnail`
 // to its photograph. Replace the model files with a model that uses the same tile texture.
 export const CERAMIC_TEXTURES = [
   {
     id: 'Fog-Mosaic',
     collectionId: 'ecostone-cross-cut',
-    collectionName: 'Ecostone Cross Cut',
     name: 'Fog Mosaic',
     description: 'Ecostone Fog Cross Cut Matte (2x2) Mosaic Porcelain Tile',
     thumbnail: './assets/thumbnails/fog-mosaic.webp',
     glb: './assets/models/fog-mosaic.glb',
-    usdz: './assets/models/fog-mosaic.usdz',
+    usdz: './assets/models/wall.usdz',
   },
   {
     id: 'Ecostone-Fossil',
     collectionId: 'ecostone-cross-cut',
-    collectionName: 'Ecostone Cross Cut',
     name: 'Ecostone Fossil',
     description: 'Ecostone Fossil Cross Cut Matte (32x96) Porcelain Tile.',
     thumbnail: './assets/thumbnails/ecostone-fossil.webp',
@@ -24,7 +31,6 @@ export const CERAMIC_TEXTURES = [
   {
     id: 'Ecostone-Mist',
     collectionId: 'ecostone-cross-cut',
-    collectionName: 'Ecostone Cross Cut',
     name: 'Ecostone Mist',
     description: 'Ecostone Mist Cross Cut Matte (48x48) Porcelain Tile',
     thumbnail: './assets/thumbnails/ecostone-mist.webp',
@@ -34,7 +40,6 @@ export const CERAMIC_TEXTURES = [
   {
     id: 'Ecostone-Pumice',
     collectionId: 'ecostone-cross-cut',
-    collectionName: 'Ecostone Cross Cut',
     name: 'Ecostone Pumice',
     description: 'Ecostone Pumice Cross Cut Matte (48x48) Porcelain Tile',
     thumbnail: './assets/thumbnails/ecostone-pumice.webp',
@@ -47,9 +52,15 @@ export const CERAMIC_TEXTURES = [
 // with the same collectionId to make another ceramic product page.
 export const CERAMIC_COLLECTIONS = Object.values(
   CERAMIC_TEXTURES.reduce((collections, texture) => {
-    const { collectionId, collectionName } = texture;
+    const { collectionId } = texture;
     if (!collections[collectionId]) {
-      collections[collectionId] = { id: collectionId, name: collectionName, textures: [] };
+      const settings = CERAMIC_COLLECTION_SETTINGS[collectionId] || {};
+      collections[collectionId] = {
+        id: collectionId,
+        name: settings.name || collectionId,
+        arPlacement: settings.arPlacement === 'wall' ? 'wall' : 'floor',
+        textures: [],
+      };
     }
     collections[collectionId].textures.push(texture);
     return collections;

@@ -14,13 +14,21 @@ The four supplied SVG texture images are placeholders. Replace them with your ow
 
 ## Create a link for each ceramic product
 
-One **collection** represents one ceramic product, and contains its finish variants. Give every variant of that product the same `collectionId` and `collectionName`. For example, four variants of a new product could look like this:
+One **collection** represents one ceramic product, and contains its finish variants. Give every variant of that product the same `collectionId`. Create its settings once in `CERAMIC_COLLECTION_SETTINGS`, including whether it is placed on the floor or wall:
+
+```js
+'marble-cloud': {
+  name: 'Marble Cloud',
+  arPlacement: 'wall', // 'floor' or 'wall'
+},
+```
+
+Then its four variants can look like this:
 
 ```js
 {
   id: 'marble-cloud-matte',
   collectionId: 'marble-cloud',
-  collectionName: 'Marble Cloud',
   name: 'Marble Cloud Matte',
   thumbnail: './assets/thumbnails/marble-cloud-matte.webp',
   glb: './assets/models/marble-cloud-matte.glb',

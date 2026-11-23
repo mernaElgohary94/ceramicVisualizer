@@ -19,7 +19,7 @@
           ar
           ar-modes="scene-viewer quick-look webxr"
           ar-scale="fixed"
-          ar-placement="wall"
+          ar-placement="floor"
           camera-controls
           shadow-intensity="0.8"
           shadow-softness="1"
@@ -29,7 +29,7 @@
           <button id="model-ar-trigger" class="ar-button" type="button">View in your room</button>
           <div class="model-fallback" slot="poster">Loading ceramic preview…</div>
         </model-viewer>
-        <p class="viewer-note">Place on floor · AR preview</p>
+        <p id="placement-note" class="viewer-note">Place on floor · AR preview</p>
       </section>
 
       <section class="details-panel" aria-labelledby="product-name">
