@@ -6,15 +6,15 @@ export const CERAMIC_TEXTURES = [
     name: 'Fog Mosaic',
     description: 'Ecostone Fog Cross Cut Matte (2x2) Mosaic Porcelain Tile',
     thumbnail: './assets/thumbnails/fog-mosaic.webp',
-    glb: './assets/models/mosaic.glb',
-    usdz: './assets/models/mosaic.usdz',
+    glb: './assets/models/fog-mosaic.glb',
+    usdz: './assets/models/fog-mosaic.usdz',
   },
   {
     id: 'Ecostone-Fossil',
     name: 'Ecostone Fossil',
     description: 'Ecostone Fossil Cross Cut Matte (32x96) Porcelain Tile.',
     thumbnail: './assets/thumbnails/ecostone-fossil.webp',
-    glb: './assets/models/Ecostone-Fossil.glb',
+    glb: './assets/models/ecostone-fossil.glb',
     usdz: './assets/models/ecostone-fossil.usdz',
   },
   {
