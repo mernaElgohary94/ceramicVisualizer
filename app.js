@@ -1,8 +1,9 @@
-import { CERAMIC_TEXTURES } from './ceramic-textures.js';
+import { CERAMIC_COLLECTIONS, CERAMIC_TEXTURES } from './ceramic-textures.js';
 
 const viewer = document.querySelector('#rug-viewer');
 const options = document.querySelector('#texture-options');
 const selectedLabel = document.querySelector('#selected-texture-label');
+const collectionLabel = document.querySelector('#collection-label');
 const productName = document.querySelector('#product-name');
 const productDescription = document.querySelector('#product-description');
 const launchButton = document.querySelector('#launch-ar');
@@ -10,19 +11,27 @@ const modelArTrigger = document.querySelector('#model-ar-trigger');
 const qrDialog = document.querySelector('#qr-dialog');
 const qrImage = document.querySelector('#qr-image');
 const qrSize = document.querySelector('#qr-size');
-let activeTexture = CERAMIC_TEXTURES[0];
+const params = new URLSearchParams(window.location.search);
+const requestedCollection = CERAMIC_COLLECTIONS.find((collection) => collection.id === params.get('collection'));
+const linkedTexture = CERAMIC_TEXTURES.find((texture) => texture.id === params.get('texture'));
+const activeCollection = requestedCollection
+  || CERAMIC_COLLECTIONS.find((collection) => collection.textures.some((texture) => texture.id === linkedTexture?.id))
+  || CERAMIC_COLLECTIONS[0];
+let activeTexture = activeCollection.textures[0];
 
 const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 function productUrl(texture) {
   const url = new URL(window.location.href);
   url.pathname = url.pathname.replace(/[^/]*$/, 'index.html');
+  url.searchParams.set('collection', activeCollection.id);
   url.searchParams.set('texture', texture.id);
   return url.href;
 }
 
 function directArUrl(texture) {
   const url = new URL('./ar.html', window.location.href);
+  url.searchParams.set('collection', activeCollection.id);
   url.searchParams.set('texture', texture.id);
   return url.href;
 }
@@ -47,15 +56,15 @@ function selectTexture(texture) {
   viewer.alt = `${texture.name} ceramic texture in AR`;
   productName.textContent = texture.name;
   productDescription.textContent = texture.description;
+  collectionLabel.textContent = activeCollection.name;
   selectedLabel.textContent = texture.name;
   launchButton.textContent = `View ${texture.name} in AR`;
   window.history.replaceState({}, '', productUrl(texture));
 }
 
-const urlTexture = new URLSearchParams(window.location.search).get('texture');
-const initialTexture = CERAMIC_TEXTURES.find((texture) => texture.id === urlTexture) || activeTexture;
+const initialTexture = activeCollection.textures.find((texture) => texture.id === linkedTexture?.id) || activeTexture;
 
-CERAMIC_TEXTURES.forEach((texture) => {
+activeCollection.textures.forEach((texture) => {
   const label = document.createElement('label');
   label.className = 'texture-option';
   label.innerHTML = `
