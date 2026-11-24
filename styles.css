@@ -47,5 +47,6 @@ legend { margin-bottom: 12px; font-weight: 700; }
 .ar-launch-page { display: grid; min-height: 100svh; place-items: center; padding: 24px; }
 .ar-launch { width: min(460px, 100%); text-align: center; }
 .ar-launch .launch-ar { display: block; margin-top: 30px; text-decoration: none; }
+.ar-return { display: inline-block; margin-top: 16px; color: var(--pine); font-size: 14px; font-weight: 700; }
 @media (max-width: 800px) { .product-page { grid-template-columns: 1fr; } .viewer-panel { min-height: 510px; padding: 20px; } model-viewer { min-height: 450px; } .viewer-note { left: 20px; } .details-panel { max-width: none; padding: 42px 24px 54px; } }
 @media (max-width: 420px) { .texture-options { grid-template-columns: 1fr; } }
