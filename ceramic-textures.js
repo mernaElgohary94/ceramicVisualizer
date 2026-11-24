@@ -23,7 +23,7 @@ export const CERAMIC_TEXTURES = [
     description: 'Ecostone Fog Cross Cut Matte (2x2) Mosaic Porcelain Tile',
     thumbnail: './assets/thumbnails/fog-mosaic.webp',
     glb: './assets/models/fog-mosaic.glb',
-    usdz: './assets/models/wall.usdz',
+    usdz: './assets/models/fog-mosaic.usdz',
   },
   {
     id: 'Ecostone-Fossil',
@@ -77,7 +77,7 @@ export const CERAMIC_TEXTURES = [
     description: 'Grey wall painting',
     thumbnail: './assets/thumbnails/grey.webp',
     glb: './assets/models/grey.glb',
-    usdz: './assets/models/grey.usdz',
+    usdz: './assets/models/grey2.usdz',
   },
   {
     id: 'brick',
