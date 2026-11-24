@@ -3,10 +3,16 @@
 export const CERAMIC_COLLECTION_SETTINGS = {
   'ecostone-cross-cut': {
     name: 'Ecostone Cross Cut',
-    arPlacement: 'wall',
+    arPlacement: 'floor',
   },
 };
 
+export const WALL_COLLECTION_SETTINGS = {
+  'wall-paintings': {
+    name: 'wall paintings',
+    arPlacement: 'wall',
+  },
+};
 // Ceramic texture registry. Add one entry per texture and point `thumbnail`
 // to its photograph. Replace the model files with a model that uses the same tile texture.
 export const CERAMIC_TEXTURES = [
@@ -45,6 +51,42 @@ export const CERAMIC_TEXTURES = [
     thumbnail: './assets/thumbnails/ecostone-pumice.webp',
     glb: './assets/models/ecostone-pumice.glb',
     usdz: './assets/models/ecostone-pumice.usdz',
+  },
+  {
+    id: 'Yellow',
+    collectionId: 'wall-paintings',
+    name: 'Yellow',
+    description: 'Yellow wall painting',
+    thumbnail: './assets/thumbnails/yellow.webp',
+    glb: './assets/models/yellow.glb',
+    usdz: './assets/models/yellow.usdz',
+  },
+  {
+    id: 'white',
+    collectionId: 'wall-paintings',
+    name: 'White',
+    description: 'White wall painting',
+    thumbnail: './assets/thumbnails/white.webp',
+    glb: './assets/models/white.glb',
+    usdz: './assets/models/white.usdz',
+  },
+  {
+    id: 'grey',
+    collectionId: 'wall-paintings',
+    name: 'Grey',
+    description: 'Grey wall painting',
+    thumbnail: './assets/thumbnails/grey.webp',
+    glb: './assets/models/grey.glb',
+    usdz: './assets/models/grey.usdz',
+  },
+  {
+    id: 'brick',
+    collectionId: 'wall-paintings',
+    name: 'Brick',
+    description: 'Brick wall painting',
+    thumbnail: './assets/thumbnails/brick.webp',
+    glb: './assets/models/brick.glb',
+    usdz: './assets/models/brick.usdz',
   },
 ];
 
