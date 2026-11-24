@@ -19,7 +19,7 @@ export const CERAMIC_TEXTURES = [
     name: 'Fog Mosaic',
     description: 'Ecostone Fog Cross Cut Matte (2x2) Mosaic Porcelain Tile',
     thumbnail: './assets/thumbnails/fog-mosaic.webp',
-    glb: './assets/models/fog-mosaic.glb',
+    glb: './assets/models/greytrial.glb',
     usdz: './assets/models/fog-mosaic.usdz',
   },
   {
