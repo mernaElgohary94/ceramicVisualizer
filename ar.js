@@ -22,7 +22,7 @@ if (isIos) {
   sceneFallback.searchParams.set('fallback', '1');
   const sceneViewer = new URL('https://arvr.google.com/scene-viewer/1.0');
   sceneViewer.searchParams.set('file', modelUrl);
-  sceneViewer.searchParams.set('mode', 'ar_only');
+  sceneViewer.searchParams.set('mode', 'ar_preferred');
   sceneViewer.searchParams.set('resizable', 'false');
   sceneViewer.searchParams.set('title', `Ceramic — ${selected.name}`);
   window.location.href = `intent://${sceneViewer.host}${sceneViewer.pathname}${sceneViewer.search}#Intent;scheme=https;package=com.google.ar.core;action=android.intent.action.VIEW;S.browser_fallback_url=${encodeURIComponent(sceneFallback.href)};end;`;

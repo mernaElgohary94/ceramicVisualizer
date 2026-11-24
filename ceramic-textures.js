@@ -77,7 +77,7 @@ export const CERAMIC_TEXTURES = [
     description: 'Grey wall painting',
     thumbnail: './assets/thumbnails/grey.webp',
     glb: './assets/models/grey.glb',
-    usdz: './assets/models/grey2.usdz',
+    usdz: './assets/models/grey.usdz',
   },
   {
     id: 'brick',
