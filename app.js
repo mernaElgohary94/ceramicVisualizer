@@ -31,10 +31,6 @@ function productUrl(texture) {
   return url.href;
 }
 
-function modelUrl(texture) {
-  return new URL(texture.glb, window.location.href).href;
-}
-
 function setArControlsReady(isReady) {
   modelReady = isReady;
   launchButton.disabled = !isReady;
@@ -66,12 +62,11 @@ function openArOrQr() {
 
 function selectTexture(texture) {
   activeTexture = texture;
-  const nextModelUrl = modelUrl(texture);
-  const isCurrentLoadedModel = viewer.loaded && viewer.src === nextModelUrl;
+  const isCurrentLoadedModel = viewer.loaded && viewer.getAttribute('src') === texture.glb;
   setArControlsReady(isCurrentLoadedModel);
   viewer.setAttribute('ios-src', texture.usdz);
   if (!isCurrentLoadedModel) {
-    viewer.src = texture.glb;
+    viewer.setAttribute('src', texture.glb);
   }
   viewer.setAttribute('ar-placement', activeCollection.arPlacement);
   viewer.alt = `${texture.name} ceramic texture in AR`;
@@ -84,7 +79,7 @@ function selectTexture(texture) {
 }
 
 viewer.addEventListener('load', () => {
-  if (viewer.src === modelUrl(activeTexture)) {
+  if (viewer.getAttribute('src') === activeTexture.glb) {
     setArControlsReady(true);
   }
 });
