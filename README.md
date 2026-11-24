@@ -64,4 +64,4 @@ For device AR testing, deploy the folder to any HTTPS host. iOS opens USDZ in Ap
 
 ## Desktop QR handoff
 
-On a laptop, the AR buttons display a QR code instead of attempting to launch AR. The code links to the dedicated [`ar.html`](./ar.html) launcher, not the product page: it sends iPhone/iPad visitors directly to the selected USDZ model in Apple Quick Look and Android visitors to the selected GLB model in Google Scene Viewer. This needs a URL the phone can reach: use a public HTTPS deployment for normal use. A `localhost` URL on a laptop cannot be reached by a phone.
+On a laptop, the AR buttons display a QR code instead of attempting to launch AR. The code opens the selected product page on the phone; the visitor then taps **View in your room** to start AR. This preserves the browser user gesture required for Android AR and lets compatible devices use WebXR first. This needs a URL the phone can reach: use a public HTTPS deployment for normal use. A `localhost` URL on a laptop cannot be reached by a phone.

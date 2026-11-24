@@ -30,20 +30,15 @@ function productUrl(texture) {
   return url.href;
 }
 
-function directArUrl(texture) {
-  const url = new URL('./ar.html', window.location.href);
-  url.searchParams.set('collection', activeCollection.id);
-  url.searchParams.set('texture', texture.id);
-  return url.href;
-}
-
 function openArOrQr() {
   if (isMobileDevice) {
     viewer.activateAR();
     return;
   }
 
-  const url = directArUrl(activeTexture);
+  // The QR code opens the product page on the phone so its AR action is
+  // initiated by a real user tap. Chrome may block automatic Android intents.
+  const url = productUrl(activeTexture);
   qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=500x500&format=svg&data=${encodeURIComponent(url)}`;
   qrImage.alt = `QR code to open the ${activeTexture.name} ceramic texture on mobile`;
   qrSize.textContent = `${activeTexture.name} selected`;
