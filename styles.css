@@ -17,6 +17,7 @@ model-viewer { display: block; width: 100%; height: calc(100% - 22px); min-heigh
 .ar-button, .launch-ar { border: 0; cursor: pointer; background: var(--pine); color: white; font-weight: 700; transition: transform .15s ease, background .15s ease; }
 .ar-button { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); padding: 14px 20px; border-radius: 999px; }
 .ar-button:hover, .launch-ar:hover { background: #0c2823; }
+.ar-button:disabled, .launch-ar:disabled { cursor: wait; opacity: .68; }
 .ar-button:focus-visible, .launch-ar:focus-visible, .texture-option:focus-within { outline: 3px solid #b67b3e; outline-offset: 3px; }
 .model-fallback { display: grid; place-items: center; height: 100%; color: var(--muted); }
 .viewer-note { position: absolute; z-index: 2; bottom: 9px; left: 28px; margin: 0; color: #53605b; font-size: 12px; }

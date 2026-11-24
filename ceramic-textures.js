@@ -5,11 +5,8 @@ export const CERAMIC_COLLECTION_SETTINGS = {
     name: 'Ecostone Cross Cut',
     arPlacement: 'floor',
   },
-};
-
-export const WALL_COLLECTION_SETTINGS = {
   'wall-paintings': {
-    name: 'wall paintings',
+    name: 'Wall Paintings',
     arPlacement: 'wall',
   },
 };
